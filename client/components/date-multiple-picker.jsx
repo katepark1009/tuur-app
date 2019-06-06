@@ -84,7 +84,7 @@ class DatePicker extends Component {
           }}
           minDate= { new Date() }
           maxDate= { this.props.unavailableDates.maxDate }
-          disabledDates = { this.props.unavailableDates.disabledList}
+          disabledDates = { (this.props.unavailableDates.disabledList) ? this.props.unavailableDates.disabledList : null  }
           className={classes.marginBottom}
         />
 
