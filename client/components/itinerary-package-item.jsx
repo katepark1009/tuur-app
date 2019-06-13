@@ -23,7 +23,8 @@ const theme = createMuiTheme({
 
 const styles = theme => ({
   card: {
-    maxWidth: 400
+    maxWidth: 400,
+    marginBottom: '20px'
   },
   media: {
     height: 0,
