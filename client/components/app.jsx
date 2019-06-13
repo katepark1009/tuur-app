@@ -24,7 +24,8 @@ class App extends Component {
       dates: {
         start: null,
         end: null
-      }
+      },
+      auth: []
     };
     this.setRoutePath = this.setRoutePath.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
@@ -35,13 +36,16 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    console.log(' updated path routing' , prevProps, prevState );
+    console.log( 'update state', this.state.path)
     if (this.state.path !== prevState.path || this.state.tags !== prevState.tags) {
       this.props.history.push(this.state.path);
     }
   }
 
+
   setRoutePath(path) {
-    console.log('setting path', this.state);
+    // console.log('setting path', this.state);
     this.setState({
       path: path
     });
@@ -102,48 +106,62 @@ class App extends Component {
               <div>
                 <LogIn {...props} logIn={this.logIn} isAuthed={true}/>
               </div>
-            }/>
+          }/>
 
           <Route exact path="/" render={props =>
-            <div>
-              <Search search={this.handleSearch} path={this.setRoutePath} />
-            </div>
+              <div>
+                <Search search={this.handleSearch} path={this.setRoutePath} />
+              </div>
           }/>
+
           <Route exact path="/itinerary" render={props =>
-            <div>
-              <Itinerary />
-            </div>
+              <div>
+                <Itinerary user={this.state} />
+              </div>
           }/>
+
           <Route exact path="/sign-up" render={props =>
-            <div>
-              <SignUp logIn={this.logIn}/>
-            </div>
+              <div>
+                <SignUp logIn={this.logIn}/>
+              </div>
           }/>
+
           <Route exact path="/user-view-profile/:email"
-            render={props => <div><UserViewProfile {...props} isAuthed={true}/> <BottomNav path={this.setRoutePath} user={this.state.user}/></div>}/>
+            render={props => 
+              <div><UserViewProfile {...props} isAuthed={true}/>
+                <BottomNav path={this.setRoutePath} user={this.state.user}/>
+              </div>
+          }/>
 
           <Route exact path="/user-profile/:email"
-            render={props => <div><UserProfile user={this.state.user} {...props} isAuthed={true}/>
-            </div>}
-          />
+            render={props => 
+              <div>
+                <UserProfile user={this.state.user} {...props} isAuthed={true}/>
+              </div>
+          }/>
 
           <Route exact path="/edit-profile/:email"
-            render={props => <div><EditProfile user={this.state.user} edit={this.edit} {...props} isAuthed={true}/>
-            </div>}
-          />
+            render={props => 
+              <div>
+                <EditProfile user={this.state.user} edit={this.edit} {...props} isAuthed={true}/>
+              </div>
+          }/>
 
           <Route path="/results" render={props =>
             <div>
               <Results path={this.setRoutePath} dates={this.state.dates} handleDates={this.handleDates} toggleStatus={this.state.toggleStatus} key={this.state.location.name} tags={this.state.tags} location={this.state.location} search={this.handleSearch}/>
             </div>
           }/>
+
           <Route path="/package-details/:id"
-            render={props => <PackageDetails packages={this.state.user}{...props} isAuthed={true}/>}
-          />
+            render={props => 
+            <PackageDetails packages={this.state.user}{...props} isAuthed={true}/>
+            }/>
 
           <Route path="/create-package"
-            render={props => <CreatePackage packages={this.state.user}{...props} isAuthed={true}/>}
-          />
+            render={props => 
+            <CreatePackage packages={this.state.user}{...props} isAuthed={true}/>
+          }/>
 
           <Route path="/about-us"
             render={props => <AboutUs {...props} />}

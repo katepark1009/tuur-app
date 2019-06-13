@@ -5,8 +5,12 @@ session_start();
 header("Content-Type:application/json");
 $method = $_SERVER['REQUEST_METHOD'];
 $item = file_get_contents('php://input');
-$email = $_SESSION['userEmail'];
-$tuuristId = $_SESSION['id'];
+
+if ( isset( $_SESSION['userEmail']) || isset($_SESSION['id']) ){
+  $email = $_SESSION['userEmail'];
+  $tuuristId = $_SESSION['id'];
+}
+
 
 if ( $method === "POST"){
   $output = json_decode( $item , true );

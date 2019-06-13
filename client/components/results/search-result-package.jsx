@@ -59,8 +59,7 @@ class SearchPackages extends Component {
       .then(res => res.json())
       .then(packages => {
         this.fetchLocation(packages)
-        ; 
-});
+      });
   }
 
   renderPackage() {
@@ -69,6 +68,7 @@ class SearchPackages extends Component {
     });
     return packages;
   }
+
   async getTuurLocationData(tuur) {
     const resp = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${tuur.location}.json?access_token=${TOKEN}`);
     const respJson = await resp.json();
@@ -77,6 +77,7 @@ class SearchPackages extends Component {
       coord: respJson.features[0].center
     };
   }
+
   mapTuurs(fetchCoordinates, packages) {
     let mapArray = packages.map(this.getTuurLocationData);
 
@@ -100,7 +101,6 @@ class SearchPackages extends Component {
     }
 
     this.props.tags.length === 0 && this.props.dates.start !== null ? this.filterDates(filterTuurs) : this.filterTags(filterTuurs);
-
   }
 
   //   filterTags () {
@@ -243,6 +243,8 @@ class SearchPackages extends Component {
   }
 
   render() {
+    console.log( this.state );
+    console.log( 'props', this.props );
     const { classes } = this.props;
     if (this.state.isLoading === true) {
       return (

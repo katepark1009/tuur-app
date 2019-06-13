@@ -58,6 +58,8 @@ class UserProfile extends Component {
     }
   }
 
+  // COMPONENTDIDUPDATE?
+
   render() {
     const { classes } = this.props;
     if (!this.state.user) {

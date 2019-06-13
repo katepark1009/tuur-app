@@ -69,6 +69,8 @@ elseif ($method === 'GET'){
         $output['status'] = true;
     }
 
+    $_SESSION['isGuide'] = $output['isGuide'];
+    
     $json_output = json_encode($output);
     
     $_SESSION['id'] = $output['id'];

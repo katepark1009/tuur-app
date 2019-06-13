@@ -7,6 +7,9 @@ import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+// import { fabGithub } from '@fortawesome/free-solid-svg-icons';
 
 const styles = theme => ({
   card: {
@@ -39,6 +42,10 @@ const styles = theme => ({
     left: '16px',
     color: '#a49f9f',
     fontSize: '20px'
+  },
+  icon:{
+    fontSize: '26px',
+    color: '#3A8288'
   }
 });
 
@@ -59,20 +66,25 @@ function AboutUs(props) {
             <Grid item xs={4}>
               <CardMedia
                 className={classes.cover}
-                image="https://files.slack.com/files-pri/T1EHQUJ8J-FKFAH3WA3/image.png"
+                image="https://media.licdn.com/dms/image/C5603AQGSKrl7sWK43g/profile-displayphoto-shrink_800_800/0?e=1565827200&v=beta&t=snJfUdGJcvrokijZLr6UoIoXoCFXfjX1PJ6anGeLMM4"
               />
             </Grid>
             <Grid item xs={7}>
               <CardContent className={classes.content}>
                 <Typography variant="h5">
-                  Jennifer
+                  Jennifer Ong
                 </Typography>
                 <Typography variant="subtitle1" color="textSecondary" className={classes.padding}>
-                  I'm the mother of components
+                  Front-End Developer
                 </Typography>
-                <div><i className="fab fa-github"></i></div>
-                <div><i className="fab fa-linkedin"></i></div>
-                <div><i className="far fa-envelope"></i></div>
+                  <div>
+                    <a className={classes.icon} style={{marginRight: '8px'}} href="https://github.com/jenOng19" target="_blank">
+                      <FontAwesomeIcon icon={faGithub} />
+                    </a>
+                    <a className={classes.icon} href="https://www.linkedin.com/in/jennifer-s-ong/" target="_blank">
+                      <FontAwesomeIcon icon={faLinkedin} />
+                    </a>
+                  </div>
               </CardContent>
             </Grid>
           </Grid>
@@ -83,20 +95,25 @@ function AboutUs(props) {
             <Grid item xs={4}>
               <CardMedia
                 className={classes.cover}
-                image="https://files.slack.com/files-pri/T1EHQUJ8J-FK22V7P3L/image.png"
+                image="https://files.slack.com/files-pri/T1EHQUJ8J-FKCAG755X/image-1__1_.jpg"
               />
             </Grid>
             <Grid item xs={7}>
               <CardContent className={classes.content}>
                 <Typography variant="h5">
-                  Eric
+                  Eric Sung
                 </Typography>
                 <Typography variant="subtitle1" color="textSecondary">
-                  mapbox :3
+                  Back-End Developer
                 </Typography>
-                <div><i className="fab fa-github"></i></div>
-                <div><i className="fab fa-linkedin"></i></div>
-                <div><i className="far fa-envelope"></i></div>
+                  <div>
+                    <a className={classes.icon} style={{marginRight: '8px'}} href="https://github.com/uncosung" target="_blank">
+                      <FontAwesomeIcon icon={faGithub} />
+                    </a>
+                    <a className={classes.icon} href="https://www.linkedin.com/in/eric-sung-1a7081122/" target="_blank">
+                      <FontAwesomeIcon icon={faLinkedin} />
+                    </a>
+                  </div>
               </CardContent>
             </Grid>
           </Grid>
@@ -106,20 +123,25 @@ function AboutUs(props) {
             <Grid item xs={4}>
               <CardMedia
                 className={classes.cover}
-                image="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/fbacf43e-aac2-41bf-a9a5-948cc74d6e9d/dd5ft1h-5c6ae97a-30da-4b1c-ad22-8b47530de733.png/v1/fill/w_894,h_894,strp/yuumi___league_of_legends_by_nifzimus_dd5ft1h-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTYwMCIsInBhdGgiOiJcL2ZcL2ZiYWNmNDNlLWFhYzItNDFiZi1hOWE1LTk0OGNjNzRkNmU5ZFwvZGQ1ZnQxaC01YzZhZTk3YS0zMGRhLTRiMWMtYWQyMi04YjQ3NTMwZGU3MzMucG5nIiwid2lkdGgiOiI8PTE2MDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.ym02s3Yh8tJFQCkI2uapjueQ6fsLkC6CPs949Z_xj_o"
+                image="https://media.licdn.com/dms/image/C5603AQFBfsraS_yvZA/profile-displayphoto-shrink_800_800/0?e=1565827200&v=beta&t=seB_qNVCXWiM3EytwvLQ-dbOYtLXUgObLUa_Uw4gDBM"
               />
             </Grid>
             <Grid item xs={7}>
               <CardContent className={classes.content}>
                 <Typography variant="h5">
-                  Kate
+                  Kate Park
                 </Typography>
                 <Typography variant="subtitle1" color="textSecondary">
-                  Boba?
+                  Front-End Developer
                 </Typography>
-                <div><i className="fab fa-github"></i></div>
-                <div><i className="fab fa-linkedin"></i></div>
-                <div><i className="far fa-envelope"></i></div>
+                  <div>
+                    <a className={classes.icon} style={{marginRight: '8px'}} href="https://github.com/katepark1009" target="_blank">
+                      <FontAwesomeIcon icon={faGithub} />
+                    </a>
+                    <a className={classes.icon} href="https://www.linkedin.com/in/kyeong-hui-park/" target="_blank">
+                      <FontAwesomeIcon icon={faLinkedin} />
+                    </a>
+                  </div>
               </CardContent>
             </Grid>
           </Grid>
@@ -129,20 +151,25 @@ function AboutUs(props) {
             <Grid item xs={4}>
               <CardMedia
                 className={classes.cover}
-                image="https://files.slack.com/files-pri/T1EHQUJ8J-FK22Y5FT5/image.png"
+                image="https://media.licdn.com/dms/image/C4D03AQFF8XexrXCVAQ/profile-displayphoto-shrink_800_800/0?e=1565827200&v=beta&t=-oQGvErgc8eJwBV2Sk7oKINOJlRKl_z_DtTcHTQnnTc"
               />
             </Grid>
             <Grid item xs={7}>
               <CardContent className={classes.content}>
                 <Typography variant="h5">
-                  Kevin
+                  Kevin Yang
                 </Typography>
                 <Typography variant="subtitle1" color="textSecondary">
-                  ...
+                  Back-End Developer
                 </Typography>
-                <div><i className="fab fa-github"></i></div>
-                <div><i className="fab fa-linkedin"></i></div>
-                <div><i className="far fa-envelope"></i></div>
+                  <div>
+                    <a className={classes.icon} style={{marginRight: '8px'}} href="https://github.com/kevbot00" target="_blank">
+                      <FontAwesomeIcon icon={faGithub} />
+                    </a>
+                    <a className={classes.icon} href="https://www.linkedin.com/in/kevinyang123" target="_blank">
+                      <FontAwesomeIcon icon={faLinkedin} />
+                    </a>
+                  </div>
               </CardContent>
             </Grid>
           </Grid>

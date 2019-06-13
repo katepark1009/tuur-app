@@ -260,7 +260,7 @@ class PackageDetails extends Component {
     return (
       <>
         <Card className={classes.card}>
-          <Grid item xs={2} className={classes.paddingRight} name='back' component={Link} to={'/results/'}>
+          <Grid item xs={2} className={classes.paddingRight} name='back' component={Link} to={'/'}>
             <KeyboardArrowLeft className={classes.fontSize} />
           </Grid>
           <CardMedia

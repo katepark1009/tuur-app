@@ -33,9 +33,8 @@ if ( $method === 'POST'){
   $dates = json_encode($package['dates']);
   $images = json_encode( $package['imageUrl']);
   $query = "INSERT INTO `package`(`title`, `description`, `tags`, `location`, `timeRange`, `dates`, `mainImage`, `images`, `profileEmail`)
-            VALUES ('{$package['title']}', '{$package['description']}', '{$tags}',  '{$package['location']}', '{$package['timeRange']}', 
-            '{$dates}', '{$package['imageUrl'][0]}', '{$images}', '{$email}')";
-
+            VALUES ('{$package['title']}', \"{$package['description']}\", '{$tags}',  '{$package['location']}', '{$package['timeRange']}', 
+            '{$dates}', '{$package['imageUrl'][0]}', '{$images}', '{$_SESSION['userEmail']}')";
   $result = mysqli_query($conn, $query);
   print_r( $result );
 }
