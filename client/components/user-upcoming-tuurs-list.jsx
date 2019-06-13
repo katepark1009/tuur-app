@@ -113,7 +113,7 @@ class UpComingTuursList extends Component {
       return <BookedTuurs key={id} booked={bookedItem} />;
     });
     const packageMap = this.state.packages.map((packageItem, id) => {
-      return <UpComingTuurItem key={id} package={packageItem} />;
+      return <UpComingTuurItem path={this.props.path} setTuurPackage={this.props.setTuurPackage} key={id} package={packageItem} />;
     });
     return (
       <>

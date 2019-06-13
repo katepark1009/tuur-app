@@ -39,6 +39,7 @@ class BottomNav extends Component {
         this.props.path('/itinerary');
         break;
       case 'account':
+      console.log('account pah')
         this.props.path(path);
 
         break;

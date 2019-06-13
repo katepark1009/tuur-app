@@ -70,7 +70,6 @@ class UserViewProfile extends Component {
   render() {
     const { classes } = this.props;
     if (!this.state) return null;
-    console.log(this.state, 'moo');
     return (
       <>
       <Container className={classes.marginBottom} >
@@ -94,7 +93,7 @@ class UserViewProfile extends Component {
           </Grid>
         </Grid>
       </Container>
-      <GuidePackages guideInfo={this.state} />
+      <GuidePackages path={this.props.path} guideInfo={this.state} />
       {/* {this.state.isGuide
         ? <UpComingTuursList view={this.props.view} user={ this.props.user } isGuide={this.state.isGuide}/>
         : <Typography variant="h5">No Tuurs available</Typography>

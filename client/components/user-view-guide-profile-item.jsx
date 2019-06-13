@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, withRouter, Route } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
@@ -14,8 +15,18 @@ class GuidePackageList extends Component {
     const { classes } = this.props;
     return (
       <>
-          <GridListTile className={classes.font} key={this.props.package.mainImage}>
-            <img className={classes.tile} src={this.props.package.mainImage} alt={this.props.package.title} />
+          <GridListTile className={classes.font} key={this.props.package.mainImage}
+          onClick={() => {
+            console.log('yo!', this.props)
+            this.props.history.push({
+              pathname: '/package-details/ '+this.props.package.id,
+              state: {
+                item: this.props.package
+              }
+            })
+          }}
+          >
+            <img className={classes.tile} src={this.props.package.mainImage} alt={this.props.package.title}/>
             <GridListTileBar
               title={this.props.package.title}
               subtitle={<span>{this.props.package.description}</span>}
@@ -45,4 +56,4 @@ const styles = theme => ({
   }
 });
 
-export default withStyles(styles)(GuidePackageList);
+export default withRouter(withStyles(styles)(GuidePackageList));
