@@ -1,25 +1,34 @@
 import React, { Component } from 'react';
-import UpComingTuursList from './user-upcoming-tuurs-list';
 import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import Grid from '@material-ui/core/Grid';
 import GuidePackages from './user-view-guide-profile';
+import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
+import { Link } from 'react-router-dom';
 
 const styles = theme => ({
   marginTop: {
-    marginTop: theme.spacing(3)
+    marginTop: theme.spacing(2)
   },
   avatar: {
-    width: 80,
-    height: 80
+    width: '120px',
+    height: '120px'
   },
   marginBottom: {
     marginBottom: theme.spacing(3)
   },
   marginLeft: {
-    marginLeft: theme.spacing(2)
+    marginLeft: theme.spacing(2),
+    color: 'gray'
+  },
+  bio: {
+    paddingLeft: '20px'
+  },
+  fontSize: {
+    fontSize: '54px',
+    color: '#222c23'
   }
 });
 
@@ -31,7 +40,8 @@ class UserViewProfile extends Component {
       location: '',
       image: '',
       isGuide: undefined,
-      email: ''
+      email: '',
+      bio: ''
     };
   }
 
@@ -45,7 +55,8 @@ class UserViewProfile extends Component {
           location: response.location,
           image: response.image,
           isGuide: response.isGuide,
-          email
+          email,
+          bio: response.bio
         });
       });
   }
@@ -60,7 +71,8 @@ class UserViewProfile extends Component {
             name: response.name,
             location: response.location,
             image: response.image,
-            isGuide: response.isGuide
+            isGuide: response.isGuide,
+            bio: response.bio
           });
         });
     }
@@ -73,11 +85,14 @@ class UserViewProfile extends Component {
     console.log(this.state, 'moo');
     return (
       <>
+        <Grid item xs={2} className={classes.paddingRight} name='back' component={Link} to={'/results/'}>
+          <KeyboardArrowLeft className={classes.fontSize} />
+        </Grid>
       <Container className={classes.marginBottom} >
         <Typography className={classes.marginTop} style={{ paddingLeft: '16px' }} variant="h4">
           {this.state.name}
         </Typography>
-        <Typography className={classes.marginLeft} variant="subtitle1">
+        <Typography className={classes.marginLeft} variant="h6">
           {this.state.location}
         </Typography>
       </Container>
@@ -89,8 +104,8 @@ class UserViewProfile extends Component {
           <Grid item xs={4}>
             <Avatar alt="avatar" src={this.state.image} className={classes.avatar} />
           </Grid>
-          <Grid item xs={6}>
-            <Typography variant="button">{this.state.bio}</Typography>
+          <Grid item xs={8} className={classes.bio}>
+            <Typography variant="subtitle1">{this.state.bio}</Typography>
           </Grid>
         </Grid>
       </Container>

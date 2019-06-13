@@ -8,11 +8,6 @@ import GridList from '@material-ui/core/GridList';
 import GuidePackageList from './user-view-guide-profile-item';
 import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
-import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
-
-
-
-
 
 const theme = createMuiTheme({
   palette: {
@@ -25,7 +20,8 @@ const theme = createMuiTheme({
 
 const styles = theme => ({
   marginTop: {
-    marginTop: theme.spacing(3)
+    marginTop: theme.spacing(3),
+    paddingLeft: '20px'
   },
   avatar: {
     width: 80,
@@ -60,18 +56,6 @@ const styles = theme => ({
     margin: theme.spacing(0.5),
     fontSize: 33
   },
-  marginTop2: {
-    marginTop: theme.spacing(4)
-  },
-  fab: {
-    margin: theme.spacing(1)
-  },
-  extendedIcon: {
-    marginRight: theme.spacing(1)
-  },
-  fontSize: {
-    fontSize: '2.5rem'
-  },
   paddingRight: {
     paddingRight: 20
   }
@@ -82,22 +66,22 @@ class GuidePackages extends Component {
     super(props);
     this.state = {
       userEmail: '',
-      packages: [],
+      packages: []
     };
   }
 
-  componentDidMount(){
-    console.log( 'compoent did mount' , this.props );
+  componentDidMount() {
+    console.log('compoent did mount', this.props);
   }
-  
-  componentDidUpdate(){
-    if ( !this.state.packages.length && !this.state.userEmail ){
-      fetch('/api/guidePackages.php?email=' + this.props.guideInfo.email )
-          .then(res => res.json())
-          .then(packages => this.setState({ userEmail: this.props.guideInfo.email, packages }));
-    } 
+
+  componentDidUpdate() {
+    if (!this.state.packages.length && !this.state.userEmail) {
+      fetch('/api/guidePackages.php?email=' + this.props.guideInfo.email)
+        .then(res => res.json())
+        .then(packages => this.setState({ userEmail: this.props.guideInfo.email, packages }));
+    }
   }
-  
+
   render() {
     const { classes } = this.props;
     const packageMap = this.state.packages.map((packageItem, id) => {
@@ -105,9 +89,6 @@ class GuidePackages extends Component {
     });
     return (
       <>
-        <Grid item xs={2} className={classes.paddingRight} name='back' component={Link} to={'/results/'}>
-          <KeyboardArrowLeft className={classes.fontSize} />
-        </Grid>
         <Container className={classes.marginBottom} >
           <Typography className={classes.marginTop} variant="h4">
             Packages
