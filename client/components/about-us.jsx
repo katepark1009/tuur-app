@@ -151,7 +151,7 @@ function AboutUs(props) {
             <Grid item xs={4}>
               <CardMedia
                 className={classes.cover}
-                image="https://media.licdn.com/dms/image/C4D03AQFF8XexrXCVAQ/profile-displayphoto-shrink_800_800/0?e=1565827200&v=beta&t=-oQGvErgc8eJwBV2Sk7oKINOJlRKl_z_DtTcHTQnnTc"
+                image='../images/kev.jpg'
               />
             </Grid>
             <Grid item xs={7}>

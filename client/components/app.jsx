@@ -43,7 +43,6 @@ class App extends Component {
     }
   }
 
-
   setRoutePath(path) {
     // console.log('setting path', this.state);
     this.setState({
