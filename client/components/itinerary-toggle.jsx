@@ -12,11 +12,11 @@ export default function ItineraryToggleButton(props) {
   const handleChange = name => event => {
     const label = state.checked ? 'Hosted' : 'Booked';
     setState({ ...state, checked: !state.checked, labelName: label });
-    props.switch( state.checked );
+    props.switch(state.checked);
   };
 
   return (
-    <FormGroup row>
+    <FormGroup style={{ display: 'inline-block', paddingLeft: '14px' }}>
       <FormControlLabel
         control={
           <Switch

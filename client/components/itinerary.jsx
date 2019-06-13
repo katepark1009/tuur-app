@@ -63,10 +63,10 @@ class Itinerary extends Component {
   }
 
   componentDidMount() {
-    
-    fetch( '/api/loginStatus.php')
-      .then( res => res.json())
-      .then( data => this.setState({ auth: data, loggedIn: data.loggedIn }, () => console.log( data )))
+
+    fetch('/api/loginStatus.php')
+      .then(res => res.json())
+      .then(data => this.setState({ auth: data, loggedIn: data.loggedIn }, () => console.log(data)));
 
     fetch('/api/booking.php?email')
       .then(res => res.json())
@@ -74,51 +74,50 @@ class Itinerary extends Component {
 
     fetch('/api/itinerary-guide.php')
       .then(res => res.json())
-      .then(hostedPackages => this.setState({ hostedPackages }))
+      .then(hostedPackages => this.setState({ hostedPackages }));
   }
 
   componentDidUpdate() {
-    if ( !this.state.auth.length && !this.state.loggedIn && !this.state.isLoading ){
-      fetch( '/api/loginStatus.php')
-      .then( res => res.json())
-      .then( data => this.setState({ auth: data, loggedIn: data.loggedIn, isLoading: false}))
+    if (!this.state.auth.length && !this.state.loggedIn && !this.state.isLoading) {
+      fetch('/api/loginStatus.php')
+        .then(res => res.json())
+        .then(data => this.setState({ auth: data, loggedIn: data.loggedIn, isLoading: false }));
     }
-    
+
     if (!this.state.package && !this.state.hostedPackages) {
       fetch('/api/booking.php?email')
         .then(res => res.json())
-        .then(packages => this.setState({ packages }))
+        .then(packages => this.setState({ packages }));
 
       fetch('/api/itinerary-guide.php')
         .then(res => res.json())
-        .then(hostedPackages => this.setState({ hostedPackages }))
+        .then(hostedPackages => this.setState({ hostedPackages }));
     }
   }
 
   handleSwitch(state) {
-    this.setState({ switch: state })
+    this.setState({ switch: state });
   }
 
   render() {
     let currentState;
-    if ( this.state.auth.loggedIn ){
-      currentState = this.state.auth.isGuide
-    } 
+    if (this.state.auth.loggedIn) {
+      currentState = this.state.auth.isGuide;
+    }
     const { classes } = this.props;
     return (
       <>
         <Container className={classes.marginBottom}>
           <Typography className={classes.marginTop} variant="h4">
             Booked Tuurs
+            { currentState
+              ? <ItineraryToggleButton switch={this.handleSwitch}/>
+              : null
+            }
           </Typography>
           {/* TOGGLE **** INCLUDE ONLY IF GUIDE ****  */}
-          { currentState
-            ? <ItineraryToggleButton switch={this.handleSwitch} />
-            : null
-          }
 
         </Container>
-
 
         {this.state.switch
           ? <> {/* HOSTED ON TRUE */}
@@ -133,7 +132,6 @@ class Itinerary extends Component {
           </>
 
         }
-
 
       </>
     );
