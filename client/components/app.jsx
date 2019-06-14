@@ -26,7 +26,8 @@ class App extends Component {
       dates: {
         start: null,
         end: null
-      }
+      },
+      auth: []
     };
     this.setRoutePath = this.setRoutePath.bind(this);
     this.setTuurPackage = this.setTuurPackage.bind(this);
@@ -38,8 +39,6 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log('prevererer', this.state)
-    console.log('lskfjlsdkfj',  prevProps );
     if ( this.props.history.location.pathname !== prevProps.history.location.pathname){
       this.setState({ path: prevProps.history.location.pathname })
     }
@@ -48,23 +47,22 @@ class App extends Component {
       if ( this.props.history.location.pathname !== prevProps.history.location.pathname){
         this.setState({ path: prevProps.history.location.pathname })
       }
+
       this.props.history.push(this.state.path);
     }
   
   }
 
   setTuurPackage(tuurPackage) {
-    console.log(tuurPackage)
     this.setState({
       tuurPackage: tuurPackage
     })
   }
 
   setRoutePath(path) {
-    console.log('setting path', path)
     this.setState({
       path: path
-    }, () => console.log(this.state));
+    });
   }
 
   logIn(user) {
@@ -122,24 +120,28 @@ class App extends Component {
               <div>
                 <LogIn {...props} logIn={this.logIn} isAuthed={true}/>
               </div>
-            }/>
+          }/>
 
           <Route exact path="/" render={props =>
-            <div>
-              <Search search={this.handleSearch} path={this.setRoutePath} />
-            </div>
+              <div>
+                <Search search={this.handleSearch} path={this.setRoutePath} />
+              </div>
           }/>
+
           <Route exact path="/itinerary" render={props =>
-            <div>
-              <Itinerary />
-            </div>
+              <div>
+                <Itinerary user={this.state} />
+              </div>
           }/>
+
           <Route exact path="/sign-up" render={props =>
-            <div>
-              <SignUp logIn={this.logIn}/>
-            </div>
+              <div>
+                <SignUp logIn={this.logIn}/>
+              </div>
           }/>
+
           <Route exact path="/user-view-profile/:email"
+
             render={props => <div><UserViewProfile path={this.setRoutePath} {...props} isAuthed={true}/> <BottomNav path={this.setRoutePath} user={this.state.user}/></div>}/>
 
           <Route exact path="/user-profile/:email"
@@ -147,27 +149,33 @@ class App extends Component {
             </div>}
           />
 
+
           <Route exact path="/edit-profile/:email"
-            render={props => <div><EditProfile user={this.state.user} edit={this.edit} {...props} isAuthed={true}/>
-            </div>}
-          />
+            render={props => 
+              <div>
+                <EditProfile user={this.state.user} edit={this.edit} {...props} isAuthed={true}/>
+              </div>
+          }/>
 
           <Route path="/results" render={props =>
             <div>
               <Results path={this.setRoutePath} dates={this.state.dates} handleDates={this.handleDates} toggleStatus={this.state.toggleStatus} key={this.state.location.name} tags={this.state.tags} location={this.state.location} search={this.handleSearch}/>
             </div>
           }/>
+
           <Route path="/package-details/:id"
-            render={props => <PackageDetails packages={this.state.user}{...props} isAuthed={true}/>}
-          />
+            render={props => 
+            <PackageDetails packages={this.state.user}{...props} isAuthed={true}/>
+            }/>
 
           <Route path="/guide-package-details/:id"
             render={props => <GuidePackageDetails path={this.setRoutePath} packages={this.state.user}{...props} tuur={this.state.tuurPackage} isAuthed={true}/>}
           />
 
           <Route path="/create-package"
-            render={props => <CreatePackage packages={this.state.user}{...props} isAuthed={true}/>}
-          />
+            render={props => 
+            <CreatePackage packages={this.state.user}{...props} isAuthed={true}/>
+          }/>
 
           <Route path="/about-us"
             render={props => <AboutUs {...props} />}

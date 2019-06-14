@@ -23,7 +23,8 @@ const theme = createMuiTheme({
 
 const styles = theme => ({
   card: {
-    maxWidth: 400
+    maxWidth: 400,
+    marginBottom: '20px'
   },
   media: {
     height: 0,
@@ -92,7 +93,7 @@ class ItineraryItem extends Component {
             title={title}
           />
           <CardContent>
-            <Typography variant="body2" color="textSecondary" component="p">
+            <Typography variant="body2" color="textSecondary" component="p" noWrap>
               {description}
             </Typography>
           </CardContent>

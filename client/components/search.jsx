@@ -43,10 +43,11 @@ const styles = theme => ({
     marginTop: theme.spacing(8)
   },
   marginBottom: {
-    marginBottom: theme.spacing(4)
+    marginBottom: theme.spacing(2)
   },
   marginBottom2: {
-    marginBottom: theme.spacing(2)
+    marginBottom: theme.spacing(2),
+    paddingLeft: '30px'
   },
   tile: {
     width: 200,
@@ -183,14 +184,14 @@ class Search extends Component {
             </Grid>
           </Grid>
         </Grid>
-        <Typography variant="h5" align="center" className={classes.marginBottom2}>
-             Popular tuurs
+        {/* <Typography variant="h5" align="left" className={classes.marginBottom2}>
+          Popular tuurs
         </Typography>
         <Grid style={{ height: '120px', width: '85%', margin: 'auto' }}>
           <Slider {...settings} >
             {packages}
           </Slider>
-        </Grid>
+        </Grid> */}
       </div>
     );
   }

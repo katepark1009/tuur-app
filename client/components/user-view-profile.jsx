@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import UpComingTuursList from './user-upcoming-tuurs-list';
 import { withStyles } from '@material-ui/core/styles';
@@ -103,4 +104,3 @@ class UserViewProfile extends Component {
   }
 }
 
-export default withStyles(styles)(UserViewProfile);

@@ -260,7 +260,7 @@ class PackageDetails extends Component {
     return (
       <>
         <Card className={classes.card}>
-          <Grid item xs={2} className={classes.paddingRight} name='back' component={Link} to={'/results/'}>
+          <Grid item xs={2} className={classes.paddingRight} name='back' component={Link} to={'/results'}>
             <KeyboardArrowLeft className={classes.fontSize} />
           </Grid>
           <CardMedia
@@ -298,6 +298,7 @@ class PackageDetails extends Component {
                 <Grid container>
                   <Grid item xs={5}>
                     <CardMedia
+                      style ={{ backgroundSize: '100% 100%' }}
                       className={classes.cover}
                       image={ this.state.package ? this.state.package.image : null}
                     />

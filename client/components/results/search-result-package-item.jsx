@@ -48,18 +48,18 @@ class SearchPackageItem extends Component {
             title={ this.props.item.title }
           />
           <CardContent>
-            <Typography variant="body2" color="textSecondary" component="p">
+            <Typography variant="body2" color="textSecondary" component="p" noWrap>
               { this.props.item.description }
             </Typography>
           </CardContent>
-          <CardActions disableSpacing>
+          {/* <CardActions disableSpacing>
             <IconButton aria-label="Add to favorites">
               <FavoriteIcon />
             </IconButton>
             <IconButton aria-label="Share">
               <ShareIcon />
             </IconButton>
-          </CardActions>
+          </CardActions> */}
         </Card>
       </Container>
     );

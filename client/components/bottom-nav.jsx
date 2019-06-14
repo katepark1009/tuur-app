@@ -20,7 +20,9 @@ const styles = theme => ({
 class BottomNav extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      auth: []
+    };
     this.handleClick = this.handleClick.bind(this);
   }
   handleClick(event) {
@@ -30,7 +32,7 @@ class BottomNav extends Component {
     } else {
       path = '/user-profile/' + this.props.user.email;
     }
-
+    console.log( 'id', event.currentTarget.id);
     switch (event.currentTarget.id) {
       case 'home':
         this.props.path('/');
@@ -44,7 +46,12 @@ class BottomNav extends Component {
         break;
     }
   }
+
+  componentDidMount(){
+    this.setState({ auth: this.props.auth })
+  }
   render() {
+    // console.log( 'inside bottom nav', this.props.auth );
     const { classes } = this.props;
     return (
       <BottomNavigation
@@ -53,7 +60,7 @@ class BottomNav extends Component {
         className={classes.root}
       >
         <BottomNavigationAction id={'home'} onClick={this.handleClick} label="Home" icon={<Home />} />
-        <BottomNavigationAction id={'itinerary'} onClick={this.handleClick} label="Itinerary" icon={<CardTravel />}/>
+        <BottomNavigationAction id={'itinerary'} onClick={this.handleClick} label="Itinerary" icon={<CardTravel />} auth={this.state.auth} />
         <BottomNavigationAction id={'account'} onClick={this.handleClick} label="Account" icon={<AccountCircle />}/>
       </BottomNavigation>
     );

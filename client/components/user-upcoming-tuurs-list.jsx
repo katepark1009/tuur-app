@@ -100,7 +100,7 @@ class UpComingTuursList extends Component {
   }
 
   componentDidUpdate() {
-    if (!this.state.packages && !this.state.booked) {
+    if (!this.state.packages.length && !this.state.booked.length) {
       this.getBooked();
       this.getCreatedPackages();
     }
