@@ -178,6 +178,7 @@ class PackageDetails extends Component {
                   <Grid item xs={5}>
                     <CardMedia
                       className={classes.cover}
+                      style= {{ backgroundSize: '100% 100%' }}
                       image={ this.state.package ? this.state.package.image : null}
                     />
                   </Grid>
