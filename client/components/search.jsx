@@ -184,14 +184,14 @@ class Search extends Component {
             </Grid>
           </Grid>
         </Grid>
-        <Typography variant="h5" align="left" className={classes.marginBottom2}>
-             Popular tuurs
+        {/* <Typography variant="h5" align="left" className={classes.marginBottom2}>
+          Popular tuurs
         </Typography>
         <Grid style={{ height: '120px', width: '85%', margin: 'auto' }}>
           <Slider {...settings} >
             {packages}
           </Slider>
-        </Grid>
+        </Grid> */}
       </div>
     );
   }
