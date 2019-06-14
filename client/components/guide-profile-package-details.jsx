@@ -125,31 +125,12 @@ class PackageDetails extends Component {
       .then(item => this.setState({ item: item[0] }, () => this.getImages()));
   }
 
-  componentDidUpdate (prevState, prevProps) {
-    // if ( !this.state.item ){
-    // fetch(`/api/profile.php?email=${this.props.tuur.profileEmail}`)
-    // .then(res => res.json())
-    // .then(response => {
-    //   this.setState({ package: response, isLoading: true });
-    // });
-
-    // const id = this.props.match.params.id;
-    // fetch('/api/package.php?id=' + id)
-    //   .then(res => res.json())
-    //   .then(item => this.setState({ item: item[0] }, () => this.getImages()));
-    // }
-    // else {
-    //     console.log('pls stop')
-    // }
-}
-
   getImages() {
     let images = JSON.parse(this.state.item.images);
     this.setState({ images, isLoading: false });
   }
 
   render() {
-      console.log('item', this.state)
     let carousel = [];
     const { classes } = this.props;
     if (this.state.images) {
@@ -161,9 +142,6 @@ class PackageDetails extends Component {
     return (
       <>
         <Card className={classes.card}>
-          <Grid item xs={2} className={classes.paddingRight} name='back' component={Link} to={'/user-profile/'+this.state.package.email}>
-            <KeyboardArrowLeft className={classes.fontSize} />
-          </Grid>
           <CardMedia
             className={classes.media}
             image={ this.state.cardImg }

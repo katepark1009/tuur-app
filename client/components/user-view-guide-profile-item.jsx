@@ -17,7 +17,6 @@ class GuidePackageList extends Component {
       <>
           <GridListTile className={classes.font} key={this.props.package.mainImage}
           onClick={() => {
-            console.log('yo!', this.props)
             this.props.history.push({
               pathname: '/package-details/ '+this.props.package.id,
               state: {

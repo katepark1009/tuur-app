@@ -38,22 +38,33 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.state.path !== prevState.path || this.state.tags !== prevState.tags) {
+    console.log('prevererer', this.state)
+    console.log('lskfjlsdkfj',  prevProps );
+    if ( this.props.history.location.pathname !== prevProps.history.location.pathname){
+      this.setState({ path: prevProps.history.location.pathname })
+    }
+
+    if (this.state.path !== prevState.path || this.state.tags !== prevState.tags ) {
+      if ( this.props.history.location.pathname !== prevProps.history.location.pathname){
+        this.setState({ path: prevProps.history.location.pathname })
+      }
       this.props.history.push(this.state.path);
     }
+  
   }
 
   setTuurPackage(tuurPackage) {
+    console.log(tuurPackage)
     this.setState({
       tuurPackage: tuurPackage
-    });
+    })
   }
 
   setRoutePath(path) {
-    console.log('setting path', this.state);
+    console.log('setting path', path)
     this.setState({
       path: path
-    });
+    }, () => console.log(this.state));
   }
 
   logIn(user) {

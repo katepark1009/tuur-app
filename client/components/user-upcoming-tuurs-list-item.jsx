@@ -33,8 +33,9 @@ class UpComingTuurItem extends Component {
       <>
           <GridListTile className={classes.font} key={this.props.package.mainImage}
           onClick = {() => {
-            this.props.path('/guide-package-details/ '+this.props.package.id);
+            console.log('clicky')
             this.props.setTuurPackage(this.props.package);
+            this.props.path('/guide-package-details/ '+this.props.package.id);
           }}
           >
             <img className={classes.tile} src={this.props.package.mainImage} alt={this.props.package.title} />
