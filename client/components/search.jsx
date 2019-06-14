@@ -37,7 +37,7 @@ const styles = theme => ({
     maxWidth: 370
   },
   media: {
-    height: 230
+    height: 320
   },
   marginTop: {
     marginTop: theme.spacing(8)
