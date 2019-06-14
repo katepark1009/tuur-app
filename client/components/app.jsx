@@ -7,6 +7,7 @@ import Itinerary from './itinerary';
 import Results from './results';
 import Search from './search';
 import PackageDetails from './results/package-details';
+import GuidePackageDetails from './guide-profile-package-details';
 import UserViewProfile from './user-view-profile';
 import EditProfile from './user-edit-profile';
 import SignUp from './sign-up';
@@ -18,6 +19,7 @@ class App extends Component {
     this.state = {
       path: '',
       user: null,
+      tuurPackage: null,
       location: [],
       tags: [],
       toggleStatus: false,
@@ -28,6 +30,7 @@ class App extends Component {
       auth: []
     };
     this.setRoutePath = this.setRoutePath.bind(this);
+    this.setTuurPackage = this.setTuurPackage.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
 
     this.logIn = this.logIn.bind(this);
@@ -36,15 +39,27 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log(' updated path routing' , prevProps, prevState );
-    console.log( 'update state', this.state.path)
-    if (this.state.path !== prevState.path || this.state.tags !== prevState.tags) {
+    if ( this.props.history.location.pathname !== prevProps.history.location.pathname){
+      this.setState({ path: prevProps.history.location.pathname })
+    }
+
+    if (this.state.path !== prevState.path || this.state.tags !== prevState.tags ) {
+      if ( this.props.history.location.pathname !== prevProps.history.location.pathname){
+        this.setState({ path: prevProps.history.location.pathname })
+      }
+
       this.props.history.push(this.state.path);
     }
+  
+  }
+
+  setTuurPackage(tuurPackage) {
+    this.setState({
+      tuurPackage: tuurPackage
+    })
   }
 
   setRoutePath(path) {
-    // console.log('setting path', this.state);
     this.setState({
       path: path
     });
@@ -126,18 +141,14 @@ class App extends Component {
           }/>
 
           <Route exact path="/user-view-profile/:email"
-            render={props => 
-              <div><UserViewProfile {...props} isAuthed={true}/>
-                <BottomNav path={this.setRoutePath} user={this.state.user}/>
-              </div>
-          }/>
+
+            render={props => <div><UserViewProfile path={this.setRoutePath} {...props} isAuthed={true}/> <BottomNav path={this.setRoutePath} user={this.state.user}/></div>}/>
 
           <Route exact path="/user-profile/:email"
-            render={props => 
-              <div>
-                <UserProfile user={this.state.user} {...props} isAuthed={true}/>
-              </div>
-          }/>
+            render={props => <div><UserProfile path={this.setRoutePath} setTuurPackage={this.setTuurPackage} user={this.state.user} {...props} isAuthed={true}/>
+            </div>}
+          />
+
 
           <Route exact path="/edit-profile/:email"
             render={props => 
@@ -156,6 +167,10 @@ class App extends Component {
             render={props => 
             <PackageDetails packages={this.state.user}{...props} isAuthed={true}/>
             }/>
+
+          <Route path="/guide-package-details/:id"
+            render={props => <GuidePackageDetails path={this.setRoutePath} packages={this.state.user}{...props} tuur={this.state.tuurPackage} isAuthed={true}/>}
+          />
 
           <Route path="/create-package"
             render={props => 

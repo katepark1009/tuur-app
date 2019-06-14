@@ -101,7 +101,7 @@ class UserProfile extends Component {
         </Grid>
       </Grid>
     </Container>
-    <UpComingTuursList user={ this.state.user }/>
+    <UpComingTuursList path={this.props.path} setTuurPackage={this.props.setTuurPackage} user={ this.state.user }/>
       {/* {this.state.user.isGuide
         ? <UpComingTuursList user={ this.state.user }/>
         : <Typography variant="h5" style={{ paddingLeft: '10px' }}>No Tuurs available</Typography>

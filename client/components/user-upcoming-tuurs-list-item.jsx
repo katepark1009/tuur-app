@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {withRouter} from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
@@ -30,7 +31,13 @@ class UpComingTuurItem extends Component {
     const { classes } = this.props;
     return (
       <>
-          <GridListTile className={classes.font} key={this.props.package.mainImage}>
+          <GridListTile className={classes.font} key={this.props.package.mainImage}
+          onClick = {() => {
+            console.log('clicky')
+            this.props.setTuurPackage(this.props.package);
+            this.props.path('/guide-package-details/ '+this.props.package.id);
+          }}
+          >
             <img className={classes.tile} src={this.props.package.mainImage} alt={this.props.package.title} />
             <GridListTileBar
               title={this.props.package.title}
@@ -45,4 +52,4 @@ class UpComingTuurItem extends Component {
   }
 }
 
-export default withStyles(styles)(UpComingTuurItem);
+export default withRouter(withStyles(styles)(UpComingTuurItem));

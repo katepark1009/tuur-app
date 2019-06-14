@@ -1,34 +1,26 @@
+
 import React, { Component } from 'react';
+import UpComingTuursList from './user-upcoming-tuurs-list';
 import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import Grid from '@material-ui/core/Grid';
 import GuidePackages from './user-view-guide-profile';
-import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
-import { Link } from 'react-router-dom';
 
 const styles = theme => ({
   marginTop: {
-    marginTop: theme.spacing(2)
+    marginTop: theme.spacing(3)
   },
   avatar: {
-    width: '120px',
-    height: '120px'
+    width: 80,
+    height: 80
   },
   marginBottom: {
     marginBottom: theme.spacing(3)
   },
   marginLeft: {
-    marginLeft: theme.spacing(2),
-    color: 'gray'
-  },
-  bio: {
-    paddingLeft: '20px'
-  },
-  fontSize: {
-    fontSize: '54px',
-    color: '#222c23'
+    marginLeft: theme.spacing(2)
   }
 });
 
@@ -40,8 +32,7 @@ class UserViewProfile extends Component {
       location: '',
       image: '',
       isGuide: undefined,
-      email: '',
-      bio: ''
+      email: ''
     };
   }
 
@@ -55,8 +46,7 @@ class UserViewProfile extends Component {
           location: response.location,
           image: response.image,
           isGuide: response.isGuide,
-          email,
-          bio: response.bio
+          email
         });
       });
   }
@@ -71,8 +61,7 @@ class UserViewProfile extends Component {
             name: response.name,
             location: response.location,
             image: response.image,
-            isGuide: response.isGuide,
-            bio: response.bio
+            isGuide: response.isGuide
           });
         });
     }
@@ -82,17 +71,13 @@ class UserViewProfile extends Component {
   render() {
     const { classes } = this.props;
     if (!this.state) return null;
-    console.log(this.state, 'moo');
     return (
       <>
-        <Grid item xs={2} className={classes.paddingRight} name='back' component={Link} to={'/results/'}>
-          <KeyboardArrowLeft className={classes.fontSize} />
-        </Grid>
       <Container className={classes.marginBottom} >
         <Typography className={classes.marginTop} style={{ paddingLeft: '16px' }} variant="h4">
           {this.state.name}
         </Typography>
-        <Typography className={classes.marginLeft} variant="h6">
+        <Typography className={classes.marginLeft} variant="subtitle1">
           {this.state.location}
         </Typography>
       </Container>
@@ -104,12 +89,12 @@ class UserViewProfile extends Component {
           <Grid item xs={4}>
             <Avatar alt="avatar" src={this.state.image} className={classes.avatar} />
           </Grid>
-          <Grid item xs={8} className={classes.bio}>
-            <Typography variant="subtitle1">{this.state.bio}</Typography>
+          <Grid item xs={6}>
+            <Typography variant="button">{this.state.bio}</Typography>
           </Grid>
         </Grid>
       </Container>
-      <GuidePackages guideInfo={this.state} />
+      <GuidePackages path={this.props.path} guideInfo={this.state} />
       {/* {this.state.isGuide
         ? <UpComingTuursList view={this.props.view} user={ this.props.user } isGuide={this.state.isGuide}/>
         : <Typography variant="h5">No Tuurs available</Typography>
@@ -118,6 +103,4 @@ class UserViewProfile extends Component {
     );
   }
 }
-
-export default withStyles(styles)(UserViewProfile);
 

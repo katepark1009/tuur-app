@@ -84,7 +84,7 @@ class SearchPackages extends Component {
     Promise.all(mapArray).then(tuurCoordinates => this.filterTuurs(fetchCoordinates, packages, tuurCoordinates));
   }
   fetchLocation(packages) {
-    fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${this.props.location.name}.json?access_token=${TOKEN}`)
+    fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${this.props.location.name ? this.props.location.name : 'Irvine, California'}.json?access_token=${TOKEN}`)
       .then(res => res.json())
       .then(fetchCoordinates => this.mapTuurs(fetchCoordinates, packages));
   }

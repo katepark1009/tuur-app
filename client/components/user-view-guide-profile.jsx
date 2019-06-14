@@ -70,9 +70,9 @@ class GuidePackages extends Component {
     };
   }
 
-  componentDidMount() {
-    console.log('compoent did mount', this.props);
-  }
+//   componentDidMount(){
+
+//   }
 
   componentDidUpdate() {
     if (!this.state.packages.length && !this.state.userEmail) {
