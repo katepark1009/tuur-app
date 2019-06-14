@@ -104,3 +104,4 @@ class UserViewProfile extends Component {
   }
 }
 
+export default withStyles(styles)(UserViewProfile);

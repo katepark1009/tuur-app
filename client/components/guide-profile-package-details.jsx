@@ -140,16 +140,16 @@ class PackageDetails extends Component {
     }
     if (!this.state.item) return null;
     return (
-      <>
+      <div style={{ paddingBottom: '80px' }}>
         <Card className={classes.card}>
           <CardMedia
             className={classes.media}
             image={ this.state.cardImg }
           />
         </Card>
-          <Grid container justify="center" direction="row">
-            { this.state.images ? carousel : null}
-          </Grid>
+        <Grid container justify="center" direction="row">
+          { this.state.images ? carousel : null}
+        </Grid>
         <Card>
           <CardHeader
             title={ this.props.tuur.title }
@@ -202,7 +202,7 @@ class PackageDetails extends Component {
             </Grid>
           </CardContent>
         </Card>
-      </>
+      </div>
     );
   }
 
