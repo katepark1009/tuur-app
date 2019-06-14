@@ -87,7 +87,6 @@ class GuidePackages extends Component {
   }
 
   componentDidMount(){
-    console.log( 'compoent did mount' , this.props );
   }
   
   componentDidUpdate(){
