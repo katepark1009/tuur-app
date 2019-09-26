@@ -37,7 +37,7 @@ const styles = theme => ({
     maxWidth: 370
   },
   media: {
-    height: 350
+    height: 220
   },
   marginTop: {
     marginTop: theme.spacing(8)
@@ -67,6 +67,12 @@ const styles = theme => ({
     right: '11px',
     color: '#a49f9f',
     fontSize: '20px'
+  },
+  newtitle: {
+    height: 70, 
+    color: '#3A8288', 
+    fontSize: '3rem', 
+    textAlign: 'center'
   }
 });
 
@@ -146,8 +152,8 @@ class Search extends Component {
     return (
       <div style={{ fontSize: 0 }}>
         {/* <img style={imgStyle} src="https://i.imgur.com/AU3rU4N.png" alt="logo"/> */}
-        <img style={imgStyle} src="images/logo.png" alt="logo"/>
-        <div className={classes.aboutUs} component='a' onClick={this.aboutUs} ><MoreVert style={{ fontSize: '30px' }} /></div>
+        <div className={classes.newtitle}>tuur</div>
+        {/* <div className={classes.aboutUs} component='a' onClick={this.aboutUs} ><MoreVert style={{ fontSize: '30px' }} /></div> */}
         <Card style={{ maxWidth: '100%' }} mt={0} className={classes.card}>
           <CardActionArea>
             <CardMedia
