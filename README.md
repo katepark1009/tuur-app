@@ -1,4 +1,4 @@
-# c319_local_tour_guide
+# Tuur (local tour guide app)
 
 https://docs.google.com/document/d/e/2PACX-1vTu9-tfUnrAeRfMlmBdqOSn-AdwqrCkRLjFqvMY9eaDVZhiuDEHoB0ncBTxVavIDMxgB65NutnOlSr3/pub
 
