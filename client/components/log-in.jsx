@@ -35,6 +35,12 @@ const styles = theme => ({
   margin: {
     marginTop: theme.spacing(2),
     marginLeft: theme.spacing(2)
+  },
+  newtitle: {
+    height: 70,
+    color: '#3A8288',
+    fontSize: '3rem',
+    textAlign: 'center'
   }
 });
 
@@ -78,7 +84,7 @@ class LogIn extends React.Component {
     return (
     <>
     <div style = {{ fontSize: 0 }}>
-      <img style={imgStyle} src="https://i.imgur.com/AU3rU4N.png" alt="logo"/>
+    <div className={classes.newtitle}>tuur</div>
       <img style={{ width: '100%', height: '260px' }} src="https://cdn.pixabay.com/photo/2016/11/18/19/40/adventure-1836601_1280.jpg" alt="mainImage"/>
     </div>
       <Grid justify="center" alignItems="center" container>

@@ -301,7 +301,7 @@ class SearchBar extends Component {
 
               <Grid item xs={3}>
                 <Button type="submit" className={classes.button} fullWidth variant="contained" color="secondary">Filter
-                   <Select
+                  <Select
                     className={classes.width}
                     multiple
                     value={this.state.tags}

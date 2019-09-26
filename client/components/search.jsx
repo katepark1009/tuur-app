@@ -69,9 +69,9 @@ const styles = theme => ({
     fontSize: '20px'
   },
   newtitle: {
-    height: 70, 
-    color: '#3A8288', 
-    fontSize: '3rem', 
+    height: 70,
+    color: '#3A8288',
+    fontSize: '3rem',
     textAlign: 'center'
   }
 });
