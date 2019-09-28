@@ -13,7 +13,8 @@ const styles = theme => ({
     position: 'fixed',
     bottom: 0,
     padding: '7px 0',
-    zIndex: '100'
+    zIndex: '100',
+    boxShadow: '0 0 0.2em #808080b5'
   }
 });
 

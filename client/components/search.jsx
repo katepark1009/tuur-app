@@ -69,10 +69,13 @@ const styles = theme => ({
     fontSize: '20px'
   },
   newtitle: {
-    height: 70,
-    color: '#3A8288',
-    fontSize: '3rem',
-    textAlign: 'center'
+    height: 60,
+    backgroundColor: '#61b5bc',
+    color: 'white',
+    fontSize: '2rem',
+    textAlign: 'center',
+    paddingTop: '3%',
+    fontFamily: 'Montserrat , sans-serif'
   }
 });
 

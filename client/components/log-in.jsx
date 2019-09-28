@@ -27,7 +27,7 @@ const imgStyle = {
 };
 const styles = theme => ({
   marginTop: {
-    marginTop: theme.spacing(4)
+    marginTop: theme.spacing(2)
   },
   marginLeft: {
     marginLeft: -5
@@ -37,10 +37,13 @@ const styles = theme => ({
     marginLeft: theme.spacing(2)
   },
   newtitle: {
-    height: 70,
-    color: '#3A8288',
-    fontSize: '3rem',
-    textAlign: 'center'
+    height: 60,
+    backgroundColor: '#61b5bc',
+    color: 'white',
+    fontSize: '2rem',
+    paddingTop: '3%',
+    textAlign: 'center',
+    fontFamily: 'Montserrat , sans-serif'
   }
 });
 
@@ -85,10 +88,10 @@ class LogIn extends React.Component {
     <>
     <div style = {{ fontSize: 0 }}>
     <div className={classes.newtitle}>tuur</div>
-      <img style={{ width: '100%', height: '260px' }} src="https://cdn.pixabay.com/photo/2016/11/18/19/40/adventure-1836601_1280.jpg" alt="mainImage"/>
+      <img style={{ width: '100%', height: '220px' }} src="https://cdn.pixabay.com/photo/2016/11/18/19/40/adventure-1836601_1280.jpg" alt="mainImage"/>
     </div>
       <Grid justify="center" alignItems="center" container>
-        <Typography className={classes.marginTop} variant="h4" gutterBottom>
+        <Typography className={classes.marginTop} variant="h5" gutterBottom style={{fontFamily: 'Montserrat , sans-serif', fontWeight: '700'}}>
         Welcome back
         </Typography>
       </Grid>
